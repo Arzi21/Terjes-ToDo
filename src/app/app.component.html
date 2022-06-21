@@ -1,0 +1,9 @@
+<div overflow-scroll="true">
+  <app-header></app-header>
+
+  <app-tasks [tasks]="taskList" (selectedTask)="setSelectedTask($event)"></app-tasks>
+
+  <app-tasks-completed></app-tasks-completed>
+
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,7 @@
+<section>
+    <article *ngFor="let task of tasks" #currenttask (click)="onSelect(currenttask)">
+        <h3> {{ task?.title }} </h3>
+        <p> {{ task?.description }} </p>
+        <p> {{ task?.date }} </p>
+    </article>
+</section>
