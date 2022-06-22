@@ -2,9 +2,19 @@
 <aside>
 
     <ul>
-        <li>
-            <h3>things here</h3>
+        <li *ngFor="let completedTask of completedTasks">
+            <h3> {{ completedTask.title }} </h3>
         </li>
     </ul>
+
+    <div>
+        <button>
+            <img src="../../../assets/images/icons8-undo-50.png">
+        </button>
+
+        <button>
+            <img src="../../../assets/svg/icons8-trash.svg">
+        </button>
+    </div>
 
 </aside>

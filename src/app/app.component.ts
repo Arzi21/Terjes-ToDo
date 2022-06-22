@@ -37,11 +37,34 @@ export class AppComponent {
 
   taskListComplete:TaskInterface[] = [
     {
-      title: "Setup an awesome project",
+      title: "Setup one awesome project",
+      description: "Setup an awesome project! Setup an awesome project. Setup an awesome project, Setup an awesome project?",
+      date: "Date/Time here"
+    },
+    {
+      title: "Setup two awesome projects",
+      description: "Setup an awesome project! Setup an awesome project. Setup an awesome project, Setup an awesome project?",
+      date: "Date/Time here"
+    },
+    {
+      title: "Setup three awesome projects",
       description: "Setup an awesome project! Setup an awesome project. Setup an awesome project, Setup an awesome project?",
       date: "Date/Time here"
     }
-  ]
+  ];
+
+  taskListDelete:TaskInterface[]=[
+    {
+      title: "Setup four awesome projects",
+      description: "Setup an awesome project! Setup an awesome project. Setup an awesome project, Setup an awesome project?",
+      date: "Date/Time here"
+    },
+    {
+      title: "Setup five awesome projects",
+      description: "Setup an awesome project! Setup an awesome project. Setup an awesome project, Setup an awesome project?",
+      date: "Date/Time here"
+    }
+  ];
 
   setSelectedTask(selectedTask: any) {
     if (this.rememberance) {
