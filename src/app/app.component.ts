@@ -25,6 +25,8 @@ export class AppComponent {
   setSelectedTask(selectedTask: any) {
     if (this.rememberance) {
       this.renderer.setStyle(this.rememberance, 'border', 'none');
+      this.renderer.setStyle(this.rememberance, 'border-top', 'solid 5px var(--primary-dark)');
+      this.renderer.setStyle(this.rememberance, 'border-bottom', 'solid 5px var(--primary-dark)');
     }
     this.renderer.setStyle(selectedTask, 'border', 'solid 5px var(--primary-verydark)');
     this.rememberance = selectedTask;
