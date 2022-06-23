@@ -2,7 +2,7 @@
 
 section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; //add mediaQueries here to improve scaling
     grid-template-rows: auto;
     /* planned layout:
         article  article  article
