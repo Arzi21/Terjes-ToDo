@@ -13,6 +13,54 @@ aside {
     ul {
         list-style: none;
         padding: 0;
-        background-color: var(--primary-dark);
+        
+        li {
+            box-shadow: 4px 2px 6px 2px #00000040;
+            background-color: var(--primary-dark);
+
+            margin: 10px 5px;
+            padding: 10px;
+
+            display: grid;
+            grid-template-columns: 60px 1fr 60px;
+            grid-template-rows: 1fr;
+            gap: 20px;
+            
+            h3 {
+                grid-column: 2 / 3;
+                grid-row: 1 / 2;
+                margin: 0;
+            }
+
+            button:last-of-type { //order for single instances of buttons
+                grid-column: 3 / 4;
+                grid-row: 1 / 2;
+            }
+
+            button:first-of-type { //order for single instances of buttons
+                grid-column: 1 / 2;
+                grid-row: 1 / 2;
+            }
+
+            button {
+                /* custom/altered: */
+                img {
+                    width: 40px;
+                    height: 40px;
+                }
+                width: 55px;
+                height: 55px;
+                /* generic: */
+                border-radius: 100%;
+                border: none;
+                margin: auto;
+                background-color: #DDDDDD;
+                box-shadow: 0px 4px 4px #00000040;
+            }
+        }
+    }
+
+    button {
+
     }
 }
