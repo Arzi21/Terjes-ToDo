@@ -25,5 +25,8 @@ export class TasksComponent implements OnInit {
     this.selectedTask.emit(activatedTask);
   }
   
+  nothing() {
+    console.log("I've not coded this path yet");
+  }
 
 }

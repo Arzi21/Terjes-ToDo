@@ -1,5 +1,15 @@
 
 
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    /* planned layout:
+        article  article  article
+         blank     div     blank
+    */
+}
+
 article {
     background-color: var(--primary-mediumdark);
     width: 275px;
@@ -12,30 +22,65 @@ article {
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
+
+    h3, p{
+        background-color: var(--primary-dark);
+    }
+    
+    h3 {
+        grid-row: 1 / 2;
+        padding: 0px 20px;
+        margin: 0;
+    
+        line-height: 70px;
+    }
+    
+    p:first-of-type {
+        grid-row: 3 / 4;
+        padding: 20px;
+        margin: 0;
+    }
+    
+    p:last-of-type {
+        grid-row: 4 / 5;
+        padding: 0px 20px;
+        margin: 0;
+    
+        line-height: 60px;
+    }
 }
 
-h3, p{
-    background-color: var(--primary-dark);
-}
+// div / button / img
+div { 
+    background-color: var(--primary-verydark);
+    width: 400px;
+    height: 100px;
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+    margin-left: -200px; //this needs to me half of width
+    border-radius: 40px 40px 0px 0px;
 
-h3 {
-    grid-row: 1 / 2;
-    padding: 0px 20px;
-    margin: 0;
-
-    line-height: 70px;
-}
-
-p:first-of-type {
-    grid-row: 3 / 4;
-    padding: 20px;
-    margin: 0;
-}
-
-p:last-of-type {
-    grid-row: 4 / 5;
-    padding: 0px 20px;
-    margin: 0;
-
-    line-height: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+    button {
+        img {
+            width: 45px;
+            height: 45px;
+        }
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        border: none;
+        margin: auto;
+        background-color: #DDDDDD;
+        box-shadow: 0px 4px 4px #00000040;
+    }
+    button:hover {
+        cursor: pointer;
+    }
+    button:active{
+        border: 2px solid #00000040;
+    }
 }

@@ -9,10 +9,16 @@ import { TaskInterface } from 'src/app/interfaces/task-interface';
 export class TasksCompletedComponent implements OnInit {
 
   @Input() completedTasks: TaskInterface[]|undefined
+  @Input() deletedTasks: TaskInterface[]|undefined
+  
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  restoreTask(task:TaskInterface) {
+    console.log("Task Restoration Initiated")
   }
 
 }
