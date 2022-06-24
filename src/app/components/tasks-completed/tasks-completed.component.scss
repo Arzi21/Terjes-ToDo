@@ -17,6 +17,8 @@ aside {
     ul {
         list-style: none;
         padding: 0;
+        max-height: calc(100vh - 140px); //second value = max defined used space
+        overflow-y: auto;
         
         li {
             box-shadow: 4px 2px 6px 2px #00000040;

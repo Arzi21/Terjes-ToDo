@@ -1,13 +1,31 @@
 
+@media  (min-width: 1000px) {
+    section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+}
+
+@media (min-width: 1250px) {
+    section {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+    }
+}
+
+@media (min-width: 1500px) {
+    section {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+    }
+}
 
 section {
-    display: grid;
-    grid-template-columns: 1fr 1fr; //add mediaQueries here to improve scaling
-    grid-template-rows: auto;
-    /* planned layout:
-        article  article  article
-         blank     div     blank
-    */
+    max-height: calc(100vh - 70px); //second value = max defined used space
+    overflow-y: auto;
 }
 
 article {
