@@ -1,9 +1,9 @@
 
-<aside>
+<aside #totalViewControl>
     
-    <h2> Completed </h2>
+    <h2> {{ currentListTitle }} </h2>
 
-    <ul>
+    <ul #listOfCompletedTasks>
         <li *ngFor="let completedTask of completedTasks">
             <h3> {{ completedTask.title }} </h3>
 
@@ -18,12 +18,12 @@
     </ul>
 
     <div>
-        <button>
+        <button (click)="changeListView(listOfCompletedTasks, listOfDeletedTasks, totalViewControl)">
             <img src="../../../assets/images/icons8-up-48.png">
         </button>
     </div>
 
-    <ul>
+    <ul #listOfDeletedTasks>
         <li *ngFor="let deletedTask of deletedTasks">
             <h3> {{ deletedTask.title }} </h3>
             <button (click)="restoreTask(deletedTask)">
