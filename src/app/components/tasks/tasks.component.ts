@@ -12,6 +12,8 @@ export class TasksComponent implements OnInit {
 
   @Output() selectedTask = new EventEmitter();
 
+  taskForm = true;
+
   constructor(
     
   ) { }
@@ -23,6 +25,16 @@ export class TasksComponent implements OnInit {
 
   onSelect(activatedTask: any) {
     this.selectedTask.emit(activatedTask);
+  }
+
+  initForm () {
+
+  }
+
+  taskAdd() {
+    console.log("Task Creation Initialized")
+    this.initForm()
+
   }
   
   nothing() {

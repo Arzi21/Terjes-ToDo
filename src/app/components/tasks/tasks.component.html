@@ -1,4 +1,20 @@
 <section>
+    <article *ngIf="taskForm">
+        <form>
+            <label>
+                Title
+                <input type="text" placeholder="Title">
+            </label>
+            <label>
+                Details
+                <input type="textarea" placeholder="Details">
+            </label>
+            <label>
+                Date
+                <input type="text" placeholder="Date">
+            </label>
+        </form>
+    </article>
     <article *ngFor="let task of tasks" #currenttask (click)="onSelect(currenttask)">
         <h3> {{ task?.title }} </h3>
         <p> {{ task?.description }} </p>
@@ -10,7 +26,7 @@
             <img src="../../../assets/svg/icons8-close.svg">
         </button>
     
-        <button (click)="nothing()">
+        <button (click)="taskAdd()">
             <img src="../../../assets/images/icons8-add-64.png">
         </button>
         
