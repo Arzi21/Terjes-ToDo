@@ -26,19 +26,20 @@ export class TasksCompletedComponent implements OnInit {
     console.log("Task Restoration Initiated")
   }
 
-  changeListView(completedTasksList: any, deletedTasksList: any, totalViewControl:any) {
-    console.log("List View Change Initiated")
+  changeListView(completedTasksList: any, deletedTasksList: any, totalViewControl: any, viewButton: any) {
+    console.log("List View Change Initiated");
     if (this.currentListTitle === "Deleted") {
       this.currentListTitle = "Completed";
       this.renderer.setStyle(completedTasksList, 'display', 'block');
-      this.renderer.setStyle(totalViewControl, 'grid-template-rows', '70px 1fr 70px')
-      this.renderer.setStyle(deletedTasksList, 'display', 'none')
-
+      this.renderer.setStyle(totalViewControl, 'grid-template-rows', '70px 1fr 70px');
+      this.renderer.setStyle(deletedTasksList, 'display', 'none');
+      this.renderer.setStyle(viewButton, 'border-radius', '20px 20px 0px 0px');
     } else {
       this.currentListTitle = "Deleted";
       this.renderer.setStyle(completedTasksList, 'display', 'none');
-      this.renderer.setStyle(totalViewControl, 'grid-template-rows', '70px 70px 1fr')
-      this.renderer.setStyle(deletedTasksList, 'display', 'block')
+      this.renderer.setStyle(totalViewControl, 'grid-template-rows', '70px 70px 1fr');
+      this.renderer.setStyle(deletedTasksList, 'display', 'block');
+      this.renderer.setStyle(viewButton, 'border-radius', '0px 0px 20px 20px');
     }
   }
 

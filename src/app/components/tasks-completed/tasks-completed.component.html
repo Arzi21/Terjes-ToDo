@@ -17,9 +17,10 @@
         </li>
     </ul>
 
-    <div>
-        <button (click)="changeListView(listOfCompletedTasks, listOfDeletedTasks, totalViewControl)">
-            <img src="../../../assets/images/icons8-up-48.png">
+    <div #viewButton>
+        <button (click)="changeListView(listOfCompletedTasks, listOfDeletedTasks, totalViewControl, viewButton)">
+            <img *ngIf="currentListTitle=='Completed'"  src="../../../assets/images/icons8-up-48.png">
+            <img *ngIf="currentListTitle=='Deleted'" src="../../../assets/images/icons8-down-48.png">
         </button>
     </div>
 
