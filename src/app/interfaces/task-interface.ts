@@ -1,5 +1,5 @@
 export interface TaskInterface {
     title: string,
-    description: string,
+    details: string,
     date: any
 }

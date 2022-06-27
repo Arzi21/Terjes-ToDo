@@ -1,23 +1,26 @@
 <section>
     <article *ngIf="taskForm">
-        <form>
+        <form [formGroup]="taskForm" (ngSubmit)="newTaskFormSubmit()">
             <label>
                 Title
-                <input type="text" placeholder="Title">
-            </label>
+                <input type="text" placeholder="Title" formControlName="title">
+            </label> <br>
             <label>
                 Details
-                <input type="textarea" placeholder="Details">
-            </label>
+                <input type="textarea" placeholder="Details" formControlName="details">
+            </label> <br>
             <label>
                 Date
-                <input type="text" placeholder="Date">
-            </label>
+                <input type="text" placeholder="Date" formControlName="date">
+            </label> <br>
+
+            <button (click)="taskForm = undefined">Cancel</button>
+            <button type="submit" [disabled]="taskForm.invalid">Submit</button>
         </form>
     </article>
     <article *ngFor="let task of tasks" #currenttask (click)="onSelect(currenttask)">
         <h3> {{ task?.title }} </h3>
-        <p> {{ task?.description }} </p>
+        <p> {{ task?.details }} </p>
         <p> {{ task?.date }} </p>
     </article>
 
