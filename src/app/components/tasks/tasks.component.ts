@@ -12,14 +12,14 @@ import { ListsService } from 'src/app/services/lists.service';
 export class TasksComponent implements OnInit {
 
   @Input() tasks:TaskInterface[]|undefined
-
   @Output() selectedTask = new EventEmitter();
 
   taskForm:FormGroup|undefined;
+  taskToUse: any = false;
 
   constructor(
     private formBuilder: FormBuilder,
-    private listsService: ListsService
+    public listsService: ListsService
   ) { }
 
   ngOnInit(): void {
@@ -27,8 +27,9 @@ export class TasksComponent implements OnInit {
   }
 
 
-  onSelect(activatedTask: any) {
-    this.selectedTask.emit(activatedTask);
+  onSelect(activatedTaskElement: any, activatedTask:TaskInterface) {
+    this.selectedTask.emit(activatedTaskElement);
+    this.taskToUse = activatedTask;
   }
 
   newTaskFormSubmit() {
@@ -36,8 +37,8 @@ export class TasksComponent implements OnInit {
       let timestamp = new Date().toLocaleDateString();
       this.taskForm?.get('date')?.setValue(timestamp);
     }
-    
-    this.listsService.taskList.push(this.taskForm?.value)
+
+    this.listsService.taskList.push(this.taskForm?.value);
   }
 
   newTaskFormInit () {
@@ -45,17 +46,30 @@ export class TasksComponent implements OnInit {
       title: ["", Validators.required],
       details: ["", Validators.required],
       date: [undefined]
-    })
+    });
   }
 
   taskAdd() {
-    console.log("Task Creation Initialized")
-    this.newTaskFormInit()
-
+    console.log("Task Creation Initialized"); //TOREMOVE
+    this.newTaskFormInit();
   }
-  
-  nothing() {
-    console.log("I've not coded this path yet");
+
+  taskComplete() { //remove task for tasklist
+    console.log("Task Completion Initialized"); //TOREMOVE
+    console.log("the data", this.taskToUse); //TOREMOVE
+    
+    this.listsService.taskList.forEach( 
+      (item, index) => {
+        if (item === this.taskToUse) this.listsService.taskList.splice(index, 1);
+      }
+    );
+    this.listsService.taskListComplete.push(this.taskToUse);
+    this.taskToUse = false;
+  }
+
+  taskDelete(taskToUse: TaskInterface) {
+    this.listsService.deleteTask(taskToUse);
+    this.taskToUse = false;
   }
 
 }

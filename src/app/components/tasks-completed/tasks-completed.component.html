@@ -7,11 +7,11 @@
         <li *ngFor="let completedTask of completedTasks">
             <h3> {{ completedTask.title }} </h3>
 
-            <button (click)="restoreTask(completedTask)">
+            <button (click)="restoreCompletedTask(completedTask)">
                 <img src="../../../assets/images/icons8-undo-50.png">
             </button>
     
-            <button>
+            <button (click)="deleteCompleteTask(completedTask)">
                 <img src="../../../assets/svg/icons8-trash.svg">
             </button>
         </li>
@@ -27,7 +27,7 @@
     <ul #listOfDeletedTasks>
         <li *ngFor="let deletedTask of deletedTasks">
             <h3> {{ deletedTask.title }} </h3>
-            <button (click)="restoreTask(deletedTask)">
+            <button (click)="restoreDeletedTask(deletedTask)">
                 <img src="../../../assets/images/icons8-undo-50.png">
             </button>
         </li>

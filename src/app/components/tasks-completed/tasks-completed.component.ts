@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Renderer2 } from '@angular/core';
 
 import { TaskInterface } from 'src/app/interfaces/task-interface';
+import { ListsService } from 'src/app/services/lists.service';
 
 @Component({
   selector: 'app-tasks-completed',
@@ -17,13 +18,37 @@ export class TasksCompletedComponent implements OnInit {
 
   constructor(
     private renderer: Renderer2,
+    public listsService: ListsService,
   ) { }
 
   ngOnInit(): void {
   }
 
-  restoreTask(task:TaskInterface) {
-    console.log("Task Restoration Initiated")
+  restoreCompletedTask(taskToRestore:TaskInterface) {
+    this.listsService.taskListComplete.forEach(
+      (item, index) => {
+        if (item === taskToRestore) this.listsService.taskListComplete.splice(index, 1);
+      }
+    );
+    this.listsService.taskList.push(taskToRestore);
+  }
+
+  restoreDeletedTask(taskToRestore:TaskInterface) {
+    this.listsService.taskListDelete.forEach(
+      (item, index) => {
+        if (item === taskToRestore) this.listsService.taskListDelete.splice(index, 1);
+      }
+    );
+    this.listsService.taskList.push(taskToRestore);
+  }
+
+  deleteCompleteTask(taskToDelete:TaskInterface) {
+    this.listsService.taskListComplete.forEach( 
+      (item, index) => {
+        if (item === taskToDelete) this.listsService.taskListComplete.splice(index, 1);
+      }
+    );
+    this.listsService.taskListDelete.push(taskToDelete);
   }
 
   changeListView(completedTasksList: any, deletedTasksList: any, totalViewControl: any, viewButton: any) {

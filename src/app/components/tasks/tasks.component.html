@@ -18,14 +18,15 @@
             <button type="submit" [disabled]="taskForm.invalid">Submit</button>
         </form>
     </article>
-    <article *ngFor="let task of tasks" #currenttask (click)="onSelect(currenttask)">
+
+    <article *ngFor="let task of tasks" #currenttask (click)="onSelect(currenttask, task)">
         <h3> {{ task?.title }} </h3>
         <p> {{ task?.details }} </p>
         <p> {{ task?.date }} </p>
     </article>
 
     <div>
-        <button (click)="nothing()">
+        <button [disabled]="!taskToUse" (click)="taskDelete(taskToUse)">
             <img src="../../../assets/svg/icons8-close.svg">
         </button>
     
@@ -33,7 +34,7 @@
             <img src="../../../assets/images/icons8-add-64.png">
         </button>
         
-        <button (click)="nothing()">
+        <button [disabled]="!taskToUse" (click)="taskComplete()">
             <img src="../../../assets/svg/icons8-done.svg">
         </button>
     </div>

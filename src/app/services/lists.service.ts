@@ -75,4 +75,13 @@ export class ListsService {
     return this.taskListComplete;
   }
 
+  deleteTask(taskToDelete:TaskInterface) {
+    this.taskList.forEach( 
+      (item, index) => {
+        if (item === taskToDelete) this.taskList.splice(index, 1);
+      }
+    );
+    this.taskListDelete.push(taskToDelete);
+  }
+
 }
