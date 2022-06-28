@@ -24,7 +24,7 @@ export class TasksComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+    this.newTaskFormInit() //TO BE REMOVED
   }
 
 
@@ -80,6 +80,5 @@ export class TasksComponent implements OnInit {
       }
     );
   }
-  
 
 }
