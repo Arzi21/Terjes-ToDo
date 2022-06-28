@@ -16,6 +16,7 @@ export class TasksComponent implements OnInit {
 
   taskForm:FormGroup|undefined;
   taskToUse: any = false;
+  countdown: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -55,9 +56,6 @@ export class TasksComponent implements OnInit {
   }
 
   taskComplete() { //remove task for tasklist
-    console.log("Task Completion Initialized"); //TOREMOVE
-    console.log("the data", this.taskToUse); //TOREMOVE
-    
     this.listsService.taskList.forEach( 
       (item, index) => {
         if (item === this.taskToUse) this.listsService.taskList.splice(index, 1);
@@ -69,7 +67,19 @@ export class TasksComponent implements OnInit {
 
   taskDelete(taskToUse: TaskInterface) {
     this.listsService.deleteTask(taskToUse);
+    this.countdown = setTimeout(this.deletionCountdown, 120000, taskToUse, this.listsService.taskListDelete);
+
     this.taskToUse = false;
   }
+
+  deletionCountdown(subject:TaskInterface, list:TaskInterface[]) {
+    console.log("Full Deletion Initiated");
+    list.forEach(
+      (item, index) => {
+        if (item === subject) list.splice(index, 1);
+      }
+    );
+  }
+  
 
 }
